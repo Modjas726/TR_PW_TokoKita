@@ -1,18 +1,25 @@
-
 <?php
 session_start();
+include "../config/database.php";
 
+// Cek apakah yang login adalah User
 if (!isset($_SESSION['role']) || $_SESSION['role'] != 'user') {
     header("Location: ../auth/login.php");
     exit;
 }
+
+// Mengambil semua produk dari database
+$query = mysqli_query($conn, "
+    SELECT * FROM products
+    ORDER BY created_at DESC
+");
 ?>
 
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard User</title>
+    <title>Katalog Produk - TokoKita</title>
 </head>
 <body>
 
@@ -29,6 +36,46 @@ if (!isset($_SESSION['role']) || $_SESSION['role'] != 'user') {
 </ul>
 
 <a href="../auth/logout.php">Logout</a>
+
+<hr>
+
+<h2>Katalog Produk</h2>
+
+<?php
+if (mysqli_num_rows($query) > 0) {
+
+    while ($produk = mysqli_fetch_assoc($query)) {
+?>
+
+    <div>
+        <?php if (!empty($produk['gambar'])) { ?>
+            <img
+                src="../uploads/<?php echo htmlspecialchars($produk['gambar']); ?>"
+                alt="Gambar produk"
+                width="150"
+            >
+        <?php } ?>
+
+        <h3><?php echo htmlspecialchars($produk['nama_produk']); ?></h3>
+
+        <p>Harga: Rp<?php echo number_format($produk['harga'], 0, ',', '.'); ?></p>
+
+        <p>Stok: <?php echo $produk['stok']; ?></p>
+
+        <a href="detail_produk.php?id=<?php echo $produk['id']; ?>">
+            Lihat Detail
+        </a>
+    </div>
+
+    <hr>
+
+<?php
+    }
+
+} else {
+    echo "<p>Belum ada produk tersedia.</p>";
+}
+?>
 
 </body>
 </html>
