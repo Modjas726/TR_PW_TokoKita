@@ -65,6 +65,18 @@ if (mysqli_num_rows($query) > 0) {
         <a href="detail_produk.php?id=<?php echo $produk['id']; ?>">
             Lihat Detail
         </a>
+
+        <form action="tambah_keranjang.php" method="POST">
+            <input type="hidden" name="product_id"
+                value="<?php echo $produk['id']; ?>">
+
+            <label>Jumlah:</label>
+            <input type="number" name="jumlah" value="1"
+                min="1" max="<?php echo $produk['stok']; ?>" required>
+
+            <button type="submit">Tambah ke Keranjang</button>
+        </form>
+
     </div>
 
     <hr>
