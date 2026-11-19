@@ -53,11 +53,11 @@ if (isset($_POST['register'])) {
     <label>Email</label><br>
     <input type="email" name="email" required><br><br>
     
-    <label>Nomor HP</label>
-    <input type="text" name="no_hp" required>
+    <label>Nomor HP</label><br>
+    <input type="text" name="no_hp" required><br><br>
 
-    <label>Alamat</label>
-    <textarea name="alamat" required></textarea>
+    <label>Alamat</label><br>
+    <textarea name="alamat" required></textarea><br><br>
 
     <label>Password</label><br>
     <input type="password" name="password" required><br><br>
