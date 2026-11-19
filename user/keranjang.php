@@ -100,6 +100,8 @@ if ($cart) {
 
 <h3>Total Belanja: Rp<?php echo number_format($total, 0, ',', '.'); ?></h3>
 
+
+
 <?php
     } else {
         echo "<p>Keranjang masih kosong.</p>";
@@ -109,6 +111,8 @@ if ($cart) {
     echo "<p>Keranjang masih kosong.</p>";
 }
 ?>
+
+    <a href="checkout.php">Lanjut ke Checkout</a>
 
 </body>
 </html>
