@@ -7,6 +7,8 @@ $pesan = "";
 if (isset($_POST['register'])) {
     $nama = mysqli_real_escape_string($conn, $_POST['nama']);
     $email = mysqli_real_escape_string($conn, $_POST['email']);
+    $no_hp = $_POST['no_hp'];
+    $alamat = $_POST['alamat'];
     $password = $_POST['password'];
 
     if (strlen($password) < 6) {
@@ -19,8 +21,8 @@ if (isset($_POST['register'])) {
         } else {
             $hash = password_hash($password, PASSWORD_DEFAULT);
 
-            $query = "INSERT INTO users (nama, email, password, role)
-                      VALUES ('$nama', '$email', '$hash', 'user')";
+            $query = "INSERT INTO users (nama, email, password, no_hp, alamat, role)
+                    VALUES ('$nama', '$email', '$hash', '$no_hp', '$alamat', 'user')";
 
             if (mysqli_query($conn, $query)) {
                 $pesan = "Registrasi berhasil! Silakan login.";
@@ -50,6 +52,12 @@ if (isset($_POST['register'])) {
 
     <label>Email</label><br>
     <input type="email" name="email" required><br><br>
+    
+    <label>Nomor HP</label>
+    <input type="text" name="no_hp" required>
+
+    <label>Alamat</label>
+    <textarea name="alamat" required></textarea>
 
     <label>Password</label><br>
     <input type="password" name="password" required><br><br>
