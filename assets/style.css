@@ -1,4 +1,3 @@
-/* TokoKita - CSS sederhana dengan detail tampilan */
 :root {
     --primary: #2563eb;
     --primary-dark: #1d4ed8;
@@ -33,7 +32,6 @@ a { color: var(--primary); font-weight: 600; text-decoration: none; }
 a:hover { color: var(--primary-dark); text-decoration: underline; }
 hr { border: 0; border-top: 1px solid var(--border); margin: 26px 0; }
 
-/* Navigasi dan tautan menu */
 body > ul {
     display: flex; flex-wrap: wrap; gap: 10px;
     list-style: none; padding: 0; margin: 18px 0;
@@ -63,7 +61,6 @@ body > ul li a:hover, .menu a:hover { background: var(--primary-dark); color: #f
 .menu { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 28px; }
 .tabel { overflow-x: auto; }
 
-/* Formulir */
 form { margin: 14px 0; }
 label { display: inline-block; color: #334155; font-weight: 600; margin: 7px 0 4px; }
 input, select, textarea {
@@ -86,7 +83,6 @@ button, input[type="submit"] {
 button:hover, input[type="submit"]:hover { background: var(--primary-dark); transform: translateY(-1px); }
 button[name="hapus"], button[type="submit"].danger { background: var(--danger); }
 
-/* Tabel data */
 table { width: 100%; border-collapse: collapse; background: white; margin: 14px 0 22px; }
 thead, th { background: #eaf1ff; color: #1e3a8a; font-weight: 700; }
 th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: middle; }
@@ -94,13 +90,11 @@ tbody tr:nth-child(even) { background: #f8fafc; }
 tbody tr:hover { background: #eff6ff; }
 table img { width: 70px; height: 70px; object-fit: cover; border-radius: 9px; }
 
-/* Gambar dan halaman produk */
 img { max-width: 100%; height: auto; }
 body > div img { display: block; object-fit: cover; border-radius: 10px; margin-bottom: 12px; }
 body > div h3 { color: #172554; }
 body > div p { margin: 7px 0; }
 
-/* Halaman login / registrasi dan tampilan layar kecil */
 body:has(> form) { max-width: 760px; }
 body:has(> form) > form { background: white; padding: 24px; border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); }
 @media (max-width: 760px) {
